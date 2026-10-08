@@ -1,0 +1,80 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "freddo",
+      "when": "morning",
+      "bg": "coffee",
+      "text": "Freddo espresso #1. The day may begin ☕"
+    },
+    {
+      "id": "sketch",
+      "when": "afternoon",
+      "bg": "mint",
+      "text": "Sketching on site. The builder thinks I'm a tourist."
+    },
+    {
+      "id": "sunset",
+      "when": "evening",
+      "bg": "sunset",
+      "text": "Athens sunset, no filter needed 🌅"
+    },
+    {
+      "id": "yiayia",
+      "when": "evening",
+      "bg": "pink",
+      "text": "Yiayia sent me home with food for a week. Again."
+    },
+    {
+      "id": "deadline",
+      "when": "night",
+      "bg": "night",
+      "text": "Deadline tomorrow. Still at the studio. Send coffee."
+    },
+    {
+      "id": "latte",
+      "when": "any",
+      "bg": "coffee",
+      "photo": "043bb7fd5e23e1051b94fb665ed80076.jpg",
+      "text": "Reward."
+    },
+    {
+      "id": "orpheus",
+      "when": "afternoon",
+      "bg": "sunset",
+      "text": "Mom sent a video of Orpheus stealing a whole loaf of bread 😅"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "morning",
+      "text": "Coffee first. Then everything else."
+    },
+    {
+      "id": "n2",
+      "when": "evening",
+      "text": "Sunset from the rooftop. Again."
+    },
+    {
+      "id": "n3",
+      "when": "afternoon",
+      "text": "Site visit, dusty shoes."
+    },
+    {
+      "id": "n4",
+      "when": "any",
+      "text": "Missing Orpheus today."
+    },
+    {
+      "id": "n5",
+      "when": "night",
+      "text": "Sketching windows at midnight."
+    },
+    {
+      "id": "n6",
+      "when": "afternoon",
+      "text": "Who designed this stair? Why?"
+    }
+  ]
+}

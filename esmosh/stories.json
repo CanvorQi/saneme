@@ -1,0 +1,79 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "bride",
+      "when": "morning",
+      "bg": "pink",
+      "text": "6am bride call. coffee in one hand, brush in the other 💄"
+    },
+    {
+      "id": "iskender",
+      "when": "afternoon",
+      "bg": "coffee",
+      "text": "iskender with the sisters. diet starts never 🔥"
+    },
+    {
+      "id": "pamuk",
+      "when": "any",
+      "bg": "pink",
+      "text": "pamuk slept on my makeup bag again. she's my assistant now"
+    },
+    {
+      "id": "karaoke",
+      "when": "night",
+      "bg": "night",
+      "text": "karaoke with my sisters. we were terrible. 10/10 night"
+    },
+    {
+      "id": "uludag",
+      "when": "morning",
+      "bg": "sunset",
+      "text": "uludağ view from the car. bursa you're so pretty sometimes"
+    },
+    {
+      "id": "tutorials",
+      "when": "night",
+      "bg": "night",
+      "text": "2am, watching a 40 min tutorial for a 5 sec trick. normal"
+    },
+    {
+      "id": "flat",
+      "when": "evening",
+      "bg": "coffee",
+      "text": "candles on, flat clean, music loud. peace 🖤"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "morning",
+      "text": "bride at 7 💄"
+    },
+    {
+      "id": "n2",
+      "when": "afternoon",
+      "text": "iskender o'clock"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "pamuk is judging me"
+    },
+    {
+      "id": "n4",
+      "when": "night",
+      "text": "karaoke anyone?? 🎤"
+    },
+    {
+      "id": "n5",
+      "when": "any",
+      "text": "new palette arrived 😭"
+    },
+    {
+      "id": "n6",
+      "when": "afternoon",
+      "text": "wedding season is killing me"
+    }
+  ]
+}
