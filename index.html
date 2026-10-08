@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanéme</title>
+<script>
+(function () {
+    try {
+        var theme = localStorage.getItem("saneme_theme") || "light";
+        document.documentElement.setAttribute("data-theme", theme);
+        if (localStorage.getItem("saneme_fx") === "0") document.documentElement.classList.add("no-fx");
+    } catch (e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#fd3880">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="description" content="Sanéme: chat with matches who have their own life, mood and memory of you. Runs entirely in your browser.">
+<script src="avatar.js"></script>
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<div id="splash"><img src="icon.png" alt=""><div class="splash-name">Sanéme</div></div>
+
+<!-- ============ Onboarding ============ -->
+<section id="onboard" class="onboard hidden">
+    <div class="onboard-hearts" id="onboardHearts"></div>
+    <button class="icon-btn onboard-theme" data-theme-toggle title="Theme">🌙</button>
+    <div class="onboard-inner">
+        <div class="onboard-brand">
+            <img src="icon.png" alt="">
+            <h1>Sanéme</h1>
+            <p>Introduce yourself. She'll learn the rest as you talk.</p>
+        </div>
+        <div class="card saved-card hidden" id="onboardSaved">
+            <h2 class="section-title">Welcome back</h2>
+            <p class="section-sub">Continue as a saved profile, or create a new one below.</p>
+            <div id="onboardSavedList"></div>
+        </div>
+        <div class="card">
+            <h2 class="section-title">Build your profile card</h2>
+            <p class="section-sub">No photo uploads here. Pick how you look and your card draws itself. It's the "photo" Sanéme sees when you match. Your personality she'll find out by talking to you.</p>
+            <form id="onboardForm"></form>
+        </div>
+    </div>
+</section>
+
+<!-- ============ App ============ -->
+<div id="app" class="hidden">
+    <nav class="rail">
+        <div class="rail-logo"><img src="icon.png" alt=""><span class="logo-text">Sanéme</span></div>
+        <button class="rail-item" data-view="home" title="Home"><span class="ri"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg></span><span class="lbl">Home</span></button>
+        <button class="rail-item" data-view="explore" title="Explore"><span class="ri"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><span class="lbl">Explore</span></button>
+        <button class="rail-item" data-view="chat" title="Messages"><span class="ri"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 2 10.5l8 3 3 8z"/><path d="m10 13.5 5.5-5.5"/></svg><span class="rail-badge hidden" data-unread-count></span></span><span class="lbl">Messages</span></button>
+        <button class="rail-item" data-view="activity" title="Notifications"><span class="ri ri-fill"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-9.6-9.2C.9 7.9 3 4 6.8 4c2.1 0 3.6 1.1 4.4 2.4h1.6C13.6 5.1 15.1 4 17.2 4 21 4 23.1 7.9 21.6 11.3 19.5 15.9 12 20.5 12 20.5z"/></svg><span class="rail-badge hidden" data-activity-count></span></span><span class="lbl">Notifications</span></button>
+        <button class="rail-item" data-view="matches" title="Matches"><span class="ri ri-fill"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.7 7-6.8 0-3.5-2.3-6-4.3-8.2-.4 2-1.4 3.2-2.7 3.7.3-3.2-1-6.3-3.5-8.7C8.6 6.3 5 9.3 5 15.2 5 19.3 8 22 12 22z"/></svg></span><span class="lbl">Matches</span></button>
+        <button class="rail-item" data-view="profile" title="Your profile card"><span class="ri"><span class="rail-me" id="railMe"></span></span><span class="lbl">Profile</span></button>
+        <div class="rail-spacer"></div>
+        <button class="rail-item" data-theme-toggle title="Light / dark"><span class="ri"><span class="ti">🌙</span></span><span class="lbl">Appearance</span></button>
+        <button class="rail-item" data-view="settings" title="Settings"><span class="ri"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><span class="lbl">More</span></button>
+    </nav>
+
+    <aside class="app-sidebar">
+        <div class="ib-head"><b data-me-name>—</b><span>Messages</span></div>
+        <div class="st-scroller notes-scroller">
+            <button class="st-arrow prev hidden" aria-label="Previous notes">‹</button>
+            <div class="notes-row" id="notesRow"></div>
+            <button class="st-arrow next hidden" aria-label="More notes">›</button>
+        </div>
+        <div class="sb-section sb-grow sb-chats">
+            <div class="sb-label"><span>Messages <span class="sb-count hidden" data-unread-count></span></span><span data-active-count></span></div>
+            <div class="sb-search"><input type="text" data-conv-search placeholder="Search chats" autocomplete="off"></div>
+            <div class="conv-list" id="convList"></div>
+        </div>
+    </aside>
+
+    <header class="topbar">
+        <div class="logo"><img src="icon.png" alt=""><span class="logo-text">Sanéme</span></div>
+        <div class="topbar-right">
+            <button class="icon-btn" data-view="settings" title="Settings">⚙️</button>
+            <button class="icon-btn" data-theme-toggle title="Theme">🌙</button>
+        </div>
+    </header>
+
+    <main class="app-shell">
+        <!-- Chat -->
+        <section class="view" id="view-chat">
+            <div class="card chat-card">
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <button class="icon-btn back-btn" data-view="chats" title="All chats">‹</button>
+                        <div class="avatar clickable" id="headAvatar" title="View her profile"><span data-persona-photo><span data-persona-initial>S</span></span><span class="dot ok"></span></div>
+                        <div class="chat-titles">
+                            <div class="chat-name clickable" data-open-her title="View her profile"><span data-persona-name>Sanéme</span><span class="chip" data-persona-meta></span></div>
+                            <div class="chat-status" id="chatStatus">online</div>
+                        </div>
+                        <div class="chat-actions">
+                            <button class="icon-btn" id="langBtn" title="Sanéme words she taught you">📖</button>
+                            <button class="icon-btn" id="debugToggle" title="Debug panel">🐞</button>
+                        </div>
+                    </div>
+                    <div class="chat-messages" id="messages"></div>
+                    <div class="reply-bar hidden" id="replyBar">
+                        <div class="rb-text"><b id="replyWho"></b><span id="replyText"></span></div>
+                        <button type="button" class="icon-btn" id="replyCancel" title="Cancel (Esc)">✕</button>
+                    </div>
+                    <div class="stk-panel hidden" id="stkPanel"></div>
+                    <form class="chat-input-row" id="sendForm">
+                        <button type="button" class="stk-btn" id="stkBtn" title="Stickers">🙂</button>
+                        <textarea id="msgInput" rows="1" placeholder="Type a message…" autocomplete="off"></textarea>
+                        <button class="btn send-btn" type="submit" title="Send">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+                        </button>
+                    </form>
+                </div>
+                <aside class="debug-panel hidden" id="debugPanel">
+                    <h3>Debug <button class="icon-btn" id="debugClose" style="width:30px;height:30px;font-size:13px">✕</button></h3>
+                    <div id="debugBody"><p class="debug-empty">No reply yet. When she replies, how the reply was put together (intent, topic, stage, mood, style steps) appears here.</p></div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Home: stories + everyone's posts -->
+        <section class="view view-scroll hidden" id="view-home">
+            <div class="home-wrap">
+                <div class="home-main">
+                    <div class="st-scroller">
+                        <button class="st-arrow prev hidden" aria-label="Previous stories">‹</button>
+                        <div class="sb-stories home-stories" id="homeStories"></div>
+                        <button class="st-arrow next hidden" aria-label="More stories">›</button>
+                    </div>
+                    <div class="feed" id="feed"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore: search people + every photo -->
+        <section class="view view-scroll hidden" id="view-explore">
+            <div class="explore-wrap">
+                <div class="sb-search ex-search"><input type="text" id="exSearch" placeholder="Search people, cities, jobs" autocomplete="off"></div>
+                <div class="ex-people hidden" id="exPeople"></div>
+                <div class="ex-grid" id="exGrid"></div>
+            </div>
+        </section>
+
+        <!-- Notifications -->
+        <section class="view view-scroll hidden" id="view-activity">
+            <div class="card narrow act-card">
+                <h2 class="section-title">Notifications</h2>
+                <div id="actList"><div class="heart-loader"><img src="icon.png" alt="">loading…</div></div>
+            </div>
+        </section>
+
+        <!-- Her profile (any character) -->
+        <section class="view view-scroll hidden" id="view-her">
+            <div class="card wide her-card" id="herProfile"><div class="heart-loader"><img src="icon.png" alt="">loading her profile…</div></div>
+        </section>
+
+        <!-- Matches: everyone you matched with -->
+        <section class="view view-scroll hidden" id="view-matches">
+            <div class="wide matches-head">
+                <div>
+                    <h2 class="section-title">Your matches</h2>
+                    <p class="section-sub">They all liked you back. Each of them has her own life, mood and memory of you.</p>
+                </div>
+            </div>
+            <div class="wide match-grid" id="matchGrid"></div>
+        </section>
+
+        <!-- Chat list (phones; on a computer it lives in the sidebar) -->
+        <section class="view view-scroll hidden" id="view-chats">
+            <div class="m-chats">
+                <div class="st-scroller notes-scroller">
+                    <button class="st-arrow prev hidden" aria-label="Previous notes">‹</button>
+                    <div class="notes-row" id="mNotes"></div>
+                    <button class="st-arrow next hidden" aria-label="More notes">›</button>
+                </div>
+                <div class="sb-label"><span>Messages <span class="sb-count hidden" data-unread-count></span></span><span data-active-count></span></div>
+                <div class="sb-search"><input type="text" data-conv-search placeholder="Search chats" autocomplete="off"></div>
+                <div class="conv-list" id="mobileConvList"></div>
+            </div>
+        </section>
+
+        <!-- Profile -->
+        <section class="view view-scroll hidden" id="view-profile">
+            <div class="card wide">
+                <h2 class="section-title" id="profileFormTitle">Profile card</h2>
+                <p class="section-sub" id="profileFormSub">The "photo" your matches see, drawn from how you look. Their first impression comes from this. Saved in this browser.</p>
+                <form id="profileForm"></form>
+            </div>
+            <div class="card wide saved-card">
+                <div class="saved-head">
+                    <div>
+                        <h2 class="section-title">Saved profiles</h2>
+                        <p class="section-sub">Each profile is a different "you", with its own chat with every match.</p>
+                    </div>
+                    <button class="btn ghost small" id="newProfileBtn">+ New profile</button>
+                </div>
+                <div id="savedList"></div>
+            </div>
+        </section>
+
+        <!-- Settings -->
+        <section class="view view-scroll hidden" id="view-settings">
+            <div class="card narrow">
+                <h2 class="section-title">Settings</h2>
+                <div class="settings-row">
+                    <div><div class="t">Dark mode</div><div class="d">For late-night chats.</div></div>
+                    <label class="switch"><input type="checkbox" id="darkSwitch"><span class="slider"></span></label>
+                </div>
+                <div class="settings-row">
+                    <div><div class="t">Visual effects</div><div class="d">Animations, celebrations and particles. Also off when your system asks to reduce motion.</div></div>
+                    <label class="switch"><input type="checkbox" id="fxSwitch"><span class="slider"></span></label>
+                </div>
+                <div class="settings-row">
+                    <div><div class="t">Message sounds</div><div class="d">A soft ding when she writes and you're not looking at her chat.</div></div>
+                    <label class="switch"><input type="checkbox" id="soundSwitch"><span class="slider"></span></label>
+                </div>
+                <div class="settings-row">
+                    <div><div class="t">Desktop notifications</div><div class="d">When the tab is in the background: who wrote and what. Clicking it opens her chat.</div></div>
+                    <label class="switch"><input type="checkbox" id="notifySwitch"><span class="slider"></span></label>
+                </div>
+                <div class="settings-row">
+                    <div><div class="t">Debug panel</div><div class="d">Shows how each reply was put together: intent, topic, stage, mood and style steps.</div></div>
+                    <label class="switch"><input type="checkbox" id="debugSwitch"><span class="slider"></span></label>
+                </div>
+                    <a class="btn ghost small" href="/admin" target="_blank" rel="noopener" style="text-decoration:none">Open</a>
+                </div>
+                <div class="settings-row">
+                    <div><div class="t">Dialog engine</div><div class="d" data-llm-detail>—</div></div>
+                    <button class="btn ghost small" id="llmRefresh">Refresh</button>
+                </div>
+                <div class="settings-row">
+                    <div><div class="t">Install the app</div><div class="d">Add Sanéme to your home screen or desktop. It works offline once installed.</div></div>
+                    <button class="btn ghost small" id="installBtn">Install</button>
+                </div>
+                <div class="settings-row">
+                    <div><div class="t">Reset a chat</div><div class="d">A fresh start: deletes the chat, what she learned about you and how much she liked you. She goes back to your matches. Your profile and the other chats stay.</div></div>
+                    <div class="reset-pick"><select id="resetWho" aria-label="Which chat"></select><button class="btn danger small" id="resetChat">Reset</button></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <button class="nav-btn" data-view="home"><span class="nav-icon">🏠</span>Home</button>
+        <button class="nav-btn" data-view="explore"><span class="nav-icon">🔍</span>Explore</button>
+        <button class="nav-btn" data-view="chats"><span class="nav-icon">💬<span class="nav-badge hidden" data-unread-count></span></span>Chats</button>
+        <button class="nav-btn" data-view="activity"><span class="nav-icon">❤️<span class="nav-badge hidden" data-activity-count></span></span>Activity</button>
+        <button class="nav-btn" data-view="profile"><span class="nav-icon">👤</span>Profile</button>
+    </nav>
+</div>
+
+<!-- Match celebration, shown once right after a new profile is created -->
+<div class="match-overlay" id="matchOverlay">
+    <div class="match-card">
+        <h2 class="match-title">It's a match!</h2>
+        <div class="match-sub" id="matchSub">You matched with 9 people. Don't overthink the first message.</div>
+        <div class="match-avatars">
+            <div class="match-avatar you" id="matchYou">?</div>
+            <img class="match-heart" src="icon.png" alt="">
+            <div class="match-fan" id="matchFan"></div>
+        </div>
+        <button class="btn" id="matchGo">See your matches</button>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- One post, big: photo + caption + comments (comments go to her DMs) -->
+<div class="post-modal" id="postModal"></div>
+
+<!-- Story viewer (24h stories) -->
+<div class="story-viewer" id="storyViewer">
+    <div class="sv-card">
+        <div class="sv-bars" id="svBars"></div>
+        <div class="sv-head">
+            <img id="svAvatar" alt="">
+            <div><b id="svName"></b> <span id="svWhen"></span></div>
+            <button class="sv-close" id="svClose" title="Close (Esc)">✕</button>
+        </div>
+        <div class="sv-content" id="svContent"></div>
+        <div class="sv-tap left" id="svPrev"></div><div class="sv-tap right" id="svNext"></div>
+        <form class="sv-reply" id="svReply">
+            <input type="text" id="svInput" maxlength="500" placeholder="Reply…" autocomplete="off">
+            <button type="button" class="sv-like" id="svLike" title="Like">♡</button>
+            <button type="submit" class="sv-send" title="Send">➤</button>
+        </form>
+    </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+    <img alt="">
+    <button class="lb-btn lb-close" data-lb="close" title="Close">✕</button>
+    <button class="lb-btn lb-prev" data-lb="prev" title="Previous">‹</button>
+    <button class="lb-btn lb-next" data-lb="next" title="Next">›</button>
+    <div class="lb-caption hidden"></div>
+    <div class="lb-count"></div>
+</div>
+
+<!-- Data (built by tools/build-data.py) and the in-browser backend: dialog engine + the stand-in for the API -->
+<script src="js/data/characters.js"></script>
+<script src="js/data/language.js"></script>
+<script src="js/local/util.js"></script>
+<script src="js/local/store.js"></script>
+<script src="js/local/characters.js"></script>
+<script src="js/local/mood.js"></script>
+<script src="js/local/openers.js"></script>
+<script src="js/local/style.js"></script>
+<script src="js/local/attraction.js"></script>
+<script src="js/local/reactions.js"></script>
+<script src="js/local/chatmedia.js"></script>
+<script src="js/local/stories.js"></script>
+<script src="js/local/crowd.js"></script>
+<script src="js/local/memory.js"></script>
+<script src="js/local/dialog/intents.js"></script>
+<script src="js/local/dialog/lines.js"></script>
+<script src="js/local/dialog/topics.js"></script>
+<script src="js/local/dialog/engine.js"></script>
+<script src="js/local/server.js"></script>
+
+<!-- The app, split by area (see each file's first line). Order matters: they share one global scope. -->
+<script src="js/core.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/characters.js"></script>
+<script src="js/stories.js"></script>
+<script src="js/social.js"></script>
+<script src="js/lightbox.js"></script>
+<script src="js/profiles.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/language.js"></script>
+<script src="js/reply.js"></script>
+<script src="js/notify.js"></script>
+<script src="js/live.js"></script>
+<script src="js/main.js"></script>
+<script src="js/pwa.js"></script>
+</body>
+</html>
