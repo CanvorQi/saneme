@@ -285,7 +285,7 @@ async function renderHerProfile() {
                 </div>
                 <div data-hpane="grid">
                     ${posts.length ? `<div class="her-photo-grid">${posts.map(p => `
-                        <div class="her-photo lq" style="${lqVar(p)}" data-pm-open="${esc(cid + "/" + p.photo)}" title="${esc(p.caption)}"><img src="${esc(p.url)}" loading="lazy" alt="">
+                        <div class="her-photo lq" style="${lqVar(p)}" data-pm-open="${esc(cid + "/" + p.photo)}" title="${esc(p.caption)}"><img src="${esc(p.thumb || p.url)}" loading="lazy" alt="">
                         <span class="hp-ov">♥ ${p.likes}</span></div>`).join("")}</div>`
                     : `<div class="empty-state">No posts yet. Put photos in <code>characters/${esc(cid)}/photos</code>.</div>`}
                 </div>
@@ -303,7 +303,7 @@ async function renderHerProfile() {
             </div>
             <aside class="profile-side">
                 ${posts.length ? `<div class="side-section"><div class="side-title">Recent</div>
-                    <div class="side-recent">${posts.slice(0, 6).map((p, i) => `<div data-goto-post="${i}" title="${esc(p.caption)}"><img src="${esc(p.url)}" loading="lazy" alt=""></div>`).join("")}</div></div>` : ""}
+                    <div class="side-recent">${posts.slice(0, 6).map((p, i) => `<div data-goto-post="${i}" title="${esc(p.caption)}"><img src="${esc(p.thumb || p.url)}" loading="lazy" alt=""></div>`).join("")}</div></div>` : ""}
                 ${h.you ? `<div class="side-section"><div class="side-title">You two</div>
                     <div class="side-kv">💞 matched <b>${relDays(h.you.matched_at)}</b><br>💬 <b>${h.you.messages}</b> messages so far</div></div>` : ""}
             </aside>
@@ -367,7 +367,7 @@ function postHTML(h, p, i) {
             <div><div class="n">${esc(h.name.toLowerCase())}</div>${p.location ? `<div class="loc">${esc(p.location)}</div>` : ""}</div>
             <div class="when">${postWhen(p.date)}</div>
         </div>
-        <div class="post-photo lq" style="${lqVar(p)}"><img src="${esc(p.url)}" loading="lazy" alt=""><span class="big-heart">♥</span></div>
+        <div class="post-photo lq" style="${lqVar(p)}"><img src="${esc(p.thumb || p.url)}" loading="lazy" alt=""><span class="big-heart">♥</span></div>
         <div class="post-actions">
             <button class="like-btn ${p.liked ? "liked" : ""}" title="Like"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 4.4 2.4h1.6c.8-1.3 2.3-2.4 4.4-2.4 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg></button>
             <button class="reply-btn" title="Comment on this post"><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg></button>

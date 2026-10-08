@@ -67,7 +67,7 @@ SL.style = (() => {
     // people text in bursts: two sentences become two bubbles once the line is a bit long
     function splitLong(part, r) {
         if (part.length < 40) return [part];
-        const pieces = part.split(/(?<=[.!?…])\s+/).filter(p => p.trim());
+        const pieces = SL.util.sentences(part);
         if (pieces.length > 1) return pieces;
         if (part.length >= 60 && r.random() < 0.6) {
             const m = part.slice(15, -10).match(/,\s+|\s+(?=(?:but|and then)\s)/);
@@ -176,7 +176,7 @@ SL.style = (() => {
             const abbr = tx.abbreviation_rate ?? 0.6;
             for (const [re, rep, w] of ABBREVIATIONS) { re.lastIndex = 0; if (re.test(s) && r.random() < abbr * w) { re.lastIndex = 0; s = s.replace(re, rep); } }
             const strip = tx.punctuation_strip ?? 1.0;
-            if (r.random() < strip) s = /\d\.\d/.test(s) ? s.replace(/\.$/, "") : s.replace(/(?<!\.)\.(?!\.)/g, "");
+            if (r.random() < strip) s = /\d\.\d/.test(s) ? s.replace(/\.$/, "") : s.replace(/\.+/g, m => m.length > 1 ? m : "");  // single periods go, "..." stays
             if (r.random() < 0.7 * strip) s = s.replace(/,/g, "");
             if (r.random() < 0.2 * strip) s = s.replace(/[?!]+$/, "");
             s = s.replace(/\s{2,}/g, " ").trim();

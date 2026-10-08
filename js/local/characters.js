@@ -9,6 +9,10 @@ SL.chars = (() => {
     const entry = cid => D.characters[cid];
     const load = cid => entry(cid).persona;
     const photoUrl = (cid, file) => file ? `characters/${encodeURIComponent(cid)}/photos/${encodeURIComponent(file)}` : null;
+    // smaller copies made by tools/build-data.py: "md" (720px) for feeds, grids, stories, chat; "sm" (240px) for avatars.
+    // A phone that decodes dozens of full-size photos at once runs out of memory (iPhone Safari reloads the page).
+    const sizedUrl = (cid, file, size) => !file ? null : entry(cid).sized
+        ? `characters/${encodeURIComponent(cid)}/${size}/${encodeURIComponent(file.replace(/\.[^.]+$/, ""))}.jpg` : photoUrl(cid, file);
     const photoFiles = cid => entry(cid).photos.slice();
     const lqip = (cid, file) => (entry(cid).lqip || {})[file] || null;
 
@@ -17,7 +21,7 @@ SL.chars = (() => {
         const prof = files.includes(p.profile_photo) ? p.profile_photo : files[0] || null;
         const cover = files.includes(p.cover_photo) ? p.cover_photo : prof;
         const ordered = (prof ? [prof] : []).concat(files.filter(f => f !== prof));
-        return { profile_photo: photoUrl(cid, prof), cover_photo: photoUrl(cid, cover), photos: ordered.map(f => photoUrl(cid, f)), files: ordered };
+        return { profile_photo: sizedUrl(cid, prof, "md"), cover_photo: sizedUrl(cid, cover, "md"), photos: ordered.map(f => photoUrl(cid, f)), files: ordered };
     }
 
     // Every photo is a post: caption, date and location from persona.posts, newest first.
@@ -30,7 +34,7 @@ SL.chars = (() => {
             const m = meta[f] || {};
             const base = 40 + SL.util.hashStr(`${cid}/${f}`) % 260;
             const on = liked.includes(f);
-            return { photo: f, url: photoUrl(cid, f), lqip: lqip(cid, f), caption: m.caption || "", date: m.date || "",
+            return { photo: f, url: photoUrl(cid, f), thumb: sizedUrl(cid, f, "md"), lqip: lqip(cid, f), caption: m.caption || "", date: m.date || "",
                      location: m.location || "", likes: base + (on ? 1 : 0), liked: on };
         });
         return out.sort((a, b) => (b.date || "0000").localeCompare(a.date || "0000"));
@@ -44,12 +48,12 @@ SL.chars = (() => {
     function card(cid) {
         const p = load(cid), ph = photos(cid);
         return { id: cid, name: p.name, age: p.age, city: p.city || "", country: p.country || "", occupation: p.occupation || "",
-                 bio: p.bio || "", photo: ph.profile_photo, cover: ph.cover_photo, timezone: p.timezone || "UTC" };
+                 bio: p.bio || "", photo: sizedUrl(cid, ph.files[0], "sm"), cover: ph.cover_photo, timezone: p.timezone || "UTC" };
     }
 
     const about = cid => entry(cid).about || {};
     const backstory = cid => entry(cid).backstory || [];
     const storyFile = cid => entry(cid).stories || {};
 
-    return { ids, has, load, photoUrl, photoFiles, lqip, photos, posts, stats, card, about, backstory, storyFile };
+    return { ids, has, load, photoUrl, sizedUrl, photoFiles, lqip, photos, posts, stats, card, about, backstory, storyFile };
 })();

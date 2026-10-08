@@ -47,7 +47,7 @@ SL.chatmedia = (() => {
         const fresh = posts.filter(p => !sent.includes(p.photo));
         const pool = fresh.length ? fresh : posts.filter(p => !sent.slice(-2).includes(p.photo)).length ? posts.filter(p => !sent.slice(-2).includes(p.photo)) : posts;
         const p = r.choice(pool);
-        return { file: p.photo, url: p.url, caption: p.caption, location: p.location, date: p.date };
+        return { file: p.photo, url: p.thumb, caption: p.caption, location: p.location, date: p.date };
     }
     return { decide, stickerMeta, list, ASK_RE, CREEPY_RE };
 })();

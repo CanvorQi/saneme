@@ -12,6 +12,24 @@
         if (localStorage.getItem("saneme_fx") === "0") document.documentElement.classList.add("no-fx");
     } catch (e) {}
 })();
+// If something breaks while the app starts (an old browser, a broken update), say what instead of hanging
+// on the splash screen. Old-style JS on purpose: this must run even where the rest can't.
+window.__startErrors = [];
+window.addEventListener("error", function (e) {
+    var msg = (e && e.message) || "unknown error";
+    var where = e && e.filename ? " (" + e.filename.split("/").pop() + ":" + e.lineno + ")" : "";
+    window.__startErrors.push(msg + where);
+    var s = document.getElementById("splash");
+    if (s && !document.getElementById("startError")) {
+        var d = document.createElement("div");
+        d.id = "startError";
+        d.style.cssText = "max-width:340px;padding:0 20px;text-align:center;font:13px/1.45 Inter,sans-serif;color:#7a2a45";
+        d.innerHTML = "Sanéme couldn't start on this browser.<br><small style='opacity:.75'></small><br>" +
+            "<button style='margin-top:12px;padding:8px 16px;border-radius:99px;border:0;background:#fd3880;color:#fff' onclick='location.reload()'>Try again</button>";
+        d.querySelector("small").textContent = msg + where;
+        s.appendChild(d);
+    }
+});
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">

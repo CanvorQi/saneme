@@ -159,15 +159,15 @@ window.SL = window.SL || {};
                 }
             });
             S.getComments(me.id, cid).filter(r => r.role === "saneme").forEach(r =>
-                ev.push({ type: "comment", cid, ts: r.ts, photo: r.photo, text: `replied to your comment: "${r.text.slice(0, 60)}"`, thumb: C.photoUrl(cid, r.photo) }));
-            SL.stories.active(cid, t).forEach(s => ev.push({ type: "story", cid, ts: s.posted_at, text: "posted a new story", thumb: C.photoUrl(cid, s.photo), bg: s.bg || "pink" }));
+                ev.push({ type: "comment", cid, ts: r.ts, photo: r.photo, text: `replied to your comment: "${r.text.slice(0, 60)}"`, thumb: C.sizedUrl(cid, r.photo, "sm") }));
+            SL.stories.active(cid, t).forEach(s => ev.push({ type: "story", cid, ts: s.posted_at, text: "posted a new story", thumb: C.sizedUrl(cid, s.photo, "sm"), bg: s.bg || "pink" }));
             const n = SL.stories.note(cid, t);
             if (n) ev.push({ type: "note", cid, ts: n.posted_at, text: `left a note: "${n.text}"` });
             C.posts(cid).forEach(post => {
                 if (!post.date) return;
                 const [y, mo, d] = post.date.split("-").map(Number);
                 const ts = SL.util.midnight(p.timezone || "UTC", y, mo, d) + 12 * 3600;
-                if (ts <= t) ev.push({ type: "post", cid, ts, photo: post.photo, thumb: post.url, text: post.caption ? `shared a post: "${post.caption.slice(0, 60)}"` : "shared a post" });
+                if (ts <= t) ev.push({ type: "post", cid, ts, photo: post.photo, thumb: C.sizedUrl(cid, post.photo, "sm"), text: post.caption ? `shared a post: "${post.caption.slice(0, 60)}"` : "shared a post" });
             });
             if (me.created_at) ev.push({ type: "match", cid, ts: me.created_at, text: "matched with you. Say hi 👋" });
         });
@@ -202,7 +202,7 @@ window.SL = window.SL || {};
         if (body.reply_to) { const target = S.getMessage(profile.id, cid, body.reply_to) || err(404, "The message you're replying to doesn't exist"); meta.reply_to = preview(target); }
         if (body.story_id) {
             const st = SL.stories.get(cid, t, body.story_id) || err(404, "That story is gone");
-            meta.story = { id: st.id, text: st.text, photo: C.photoUrl(cid, st.photo) };
+            meta.story = { id: st.id, text: st.text, photo: C.sizedUrl(cid, st.photo, "sm") };
         }
         if (body.note_id) { const n = SL.stories.getNote(cid, t, body.note_id) || err(404, "That note is gone"); meta.note = { id: n.id, text: n.text }; }
         if (body.post_photo) {

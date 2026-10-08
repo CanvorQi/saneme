@@ -30,7 +30,8 @@ SL.engine = (() => {
             if (emoji) return { emoji: true, s: core };
             const body = esc(text);
             if (whole) return new RegExp("^" + body + "$", "u");
-            return new RegExp((start ? "^" : "(?<![\\p{L}\\p{N}'])") + body + (prefix ? "" : "(?![\\p{L}\\p{N}])"), "u");
+            // left word edge as a group, not a lookbehind (older iPhones' Safari can't parse lookbehinds)
+            return new RegExp((start ? "^" : "(?:^|[^\\p{L}\\p{N}'])") + body + (prefix ? "" : "(?![\\p{L}\\p{N}])"), "u");
         };
         const exact = clean(core);
         return { w, a: mk(exact), b: mk(exact.replace(/(\p{L})\1+/gu, "$1")), raw: core };
@@ -187,7 +188,7 @@ SL.engine = (() => {
         ask_movie: SL.dialog.TOPICS.find(t => t.id === "movies").tastes,
     };
     // whole words only: "film photography" is not "rap"
-    const hasWord = (text, w) => new RegExp(`(?<![\\p{L}])${esc(w)}(?![\\p{L}])`, "iu").test(text);
+    const hasWord = (text, w) => new RegExp(`(?:^|[^\\p{L}])${esc(w)}(?![\\p{L}])`, "iu").test(text);
     function fromLikes(c, intent) {
         const words = WANTS[intent] || [];
         const items = [...(c.persona.likes || []), ...(c.persona.hobbies || [])].filter(l => words.some(w => hasWord(l, w)));
@@ -211,7 +212,7 @@ SL.engine = (() => {
                 c.trace.push(`shared a part of her story: "${b.title}" (${b.share})`);
                 // her story in texting-sized pieces: a sentence each, long ones cut at a comma or semicolon
                 const pieces = [];
-                b.me.split(/(?<=[.!?])\s+/).slice(0, 2).forEach(s => {
+                SL.util.sentences(b.me).slice(0, 2).forEach(s => {
                     if (s.length <= 90) { pieces.push(s); return; }
                     const cut = s.slice(30, -20).search(/[,;:]\s/);
                     if (cut < 0) { pieces.push(s); return; }

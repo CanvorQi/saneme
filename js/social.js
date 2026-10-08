@@ -94,7 +94,7 @@ function feedPostHTML(p, i) {
         <div class="fp-head">${avHTML(c, "sm")}
             <div class="fp-who"><button class="fp-name" data-her="${esc(c.id)}">${esc(c.name.toLowerCase())}</button>${p.location ? `<span class="fp-loc">${esc(p.location)}</span>` : ""}</div>
             <span class="fp-when">${postWhen(p.date)}</span></div>
-        <div class="post-photo fp-photo lq" style="${lqVar(p)}" data-dbl-like><img src="${esc(p.url)}" loading="lazy" alt=""><span class="big-heart">♥</span></div>
+        <div class="post-photo fp-photo lq" style="${lqVar(p)}" data-dbl-like><img src="${esc(p.thumb || p.url)}" loading="lazy" alt=""><span class="big-heart">♥</span></div>
         ${postActionsHTML(p, c)}
         ${p.caption ? `<div class="post-caption"><b>${esc(c.name.toLowerCase())}</b> ${esc(p.caption)}</div>` : ""}
         <div class="fp-comments">${commentsHTML(p, 2)}</div>
@@ -303,7 +303,7 @@ async function renderExplore() {
     const posts = state.feed.filter(p => !exFilter || people.some(c => c.id === p.cid))
         .sort((a, b) => hash(pkey(a) + SL.SESSION) - hash(pkey(b) + SL.SESSION));
     $("#exGrid").innerHTML = posts.map((p, i) => `<button class="ex-tile lq ${i % 10 === 2 || i % 10 === 5 ? "tall" : ""}" data-pm-open="${esc(pkey(p))}" style="${lqVar(p)}animation-delay:${Math.min(i, 12) * 0.025}s">
-        <img src="${esc(p.url)}" loading="lazy" alt=""><span class="ex-ov"><span>♥ ${p.likes}</span>${p.comments.length ? `<span>💬 ${p.comments.length}</span>` : ""}</span></button>`).join("");
+        <img src="${esc(p.thumb || p.url)}" loading="lazy" alt=""><span class="ex-ov"><span>♥ ${p.likes}</span>${p.comments.length ? `<span>💬 ${p.comments.length}</span>` : ""}</span></button>`).join("");
 }
 
 // ---- Notifications ----

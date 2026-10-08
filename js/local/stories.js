@@ -37,7 +37,7 @@ SL.stories = (() => {
         return null;
     }
     const pub = (cid, s) => ({ id: s.id, character_id: cid, text: s.text, bg: s.bg || "pink",
-                               photo: SL.chars.photoUrl(cid, s.photo), lqip: s.photo ? SL.chars.lqip(cid, s.photo) : null, posted_at: s.posted_at });
+                               photo: SL.chars.sizedUrl(cid, s.photo, "md"), lqip: s.photo ? SL.chars.lqip(cid, s.photo) : null, posted_at: s.posted_at });
 
     function noteDay(cid, d, items) {
         const iso = isoDate(d.y, d.mo, d.d);
@@ -64,7 +64,7 @@ SL.stories = (() => {
         SL.chars.posts(cid).forEach(p => {
             const place = (p.location ? p.location.split(",").pop().trim() : "") || "Me";
             if (!groups.has(place)) groups.set(place, []);
-            groups.get(place).push({ text: p.caption, photo: p.url, bg: "pink" });
+            groups.get(place).push({ text: p.caption, photo: p.thumb, bg: "pink" });
         });
         let out = [...groups.entries()].map(([title, items]) => ({ title, items, cover: items[0].photo }));
         out.sort((a, b) => (a.title === "Me") - (b.title === "Me"));

@@ -87,5 +87,8 @@ SL.util = (() => {
         return { y: t.getUTCFullYear(), mo: t.getUTCMonth() + 1, d: t.getUTCDate() };
     }
 
-    return { hashStr, rng, now, clamp, round, local, offset, midnight, isoDate, dayBefore };
+    // "One. Two! Three?" -> ["One.", "Two!", "Three?"] (no regex lookbehind: older iPhones' Safari can't parse it)
+    const sentences = s => (String(s).match(/[^.!?…]+(?:[.!?…]+|$)/g) || [String(s)]).map(x => x.trim()).filter(Boolean);
+
+    return { hashStr, rng, now, clamp, round, local, offset, midnight, isoDate, dayBefore, sentences };
 })();
