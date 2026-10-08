@@ -1,0 +1,80 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "track",
+      "when": "night",
+      "bg": "night",
+      "text": "new track in progress... it sounds like rain"
+    },
+    {
+      "id": "crows",
+      "when": "afternoon",
+      "bg": "mint",
+      "text": "the crows are back on the balcony 🖤"
+    },
+    {
+      "id": "tea",
+      "when": "night",
+      "bg": "coffee",
+      "text": "tea number four. 2am"
+    },
+    {
+      "id": "walk",
+      "when": "night",
+      "bg": "night",
+      "text": "empty streets, headphones on 🌙"
+    },
+    {
+      "id": "noon",
+      "when": "afternoon",
+      "bg": "sunset",
+      "text": "good morning (it's 1pm)"
+    },
+    {
+      "id": "vinyl",
+      "when": "evening",
+      "bg": "night",
+      "text": "found a 1983 vinyl for 10 lei. treasure"
+    },
+    {
+      "id": "mood",
+      "when": "night",
+      "bg": "night",
+      "photo": "9e2931c398e9bf06dbf2094050c00bf2.jpg",
+      "text": "..."
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "night",
+      "text": "new track at 3am 🎧"
+    },
+    {
+      "id": "n2",
+      "when": "night",
+      "text": "the crows are back"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "rain + synths = perfect"
+    },
+    {
+      "id": "n4",
+      "when": "any",
+      "text": "send me a 3am song"
+    },
+    {
+      "id": "n5",
+      "when": "afternoon",
+      "text": "just woke up. it's 2pm"
+    },
+    {
+      "id": "n6",
+      "when": "night",
+      "text": "vinyl hunting tomorrow"
+    }
+  ]
+}

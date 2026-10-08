@@ -1,0 +1,80 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "bug",
+      "when": "night",
+      "bg": "night",
+      "text": "found a bug that only happens on tuesdays. i am in love with it"
+    },
+    {
+      "id": "stardew",
+      "when": "evening",
+      "bg": "mint",
+      "text": "stardew hour 901. the cows are thriving"
+    },
+    {
+      "id": "fries",
+      "when": "evening",
+      "bg": "coffee",
+      "text": "fries with mayo, the only correct order 🍟"
+    },
+    {
+      "id": "boardgames",
+      "when": "evening",
+      "bg": "pink",
+      "text": "board game night: i lost catan and my dignity"
+    },
+    {
+      "id": "pixel",
+      "when": "morning",
+      "bg": "mint",
+      "text": "pixel the gecko judging me for snoozing 5 times"
+    },
+    {
+      "id": "glasses",
+      "when": "any",
+      "bg": "night",
+      "photo": "c2d07927b446fa905d33e69f82e9b4e8.jpg",
+      "text": "debug mode activated 🤓"
+    },
+    {
+      "id": "thesis",
+      "when": "afternoon",
+      "bg": "night",
+      "text": "thesis progress: wrote the title. again"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "night",
+      "text": "ranked till my eyes hurt 🎮"
+    },
+    {
+      "id": "n2",
+      "when": "afternoon",
+      "text": "bug #482 is personal now"
+    },
+    {
+      "id": "n3",
+      "when": "any",
+      "text": "pineapple on pizza: valid"
+    },
+    {
+      "id": "n4",
+      "when": "evening",
+      "text": "pixel the gecko judges me"
+    },
+    {
+      "id": "n5",
+      "when": "night",
+      "text": "one more game (lie)"
+    },
+    {
+      "id": "n6",
+      "when": "morning",
+      "text": "lost my glasses on my head"
+    }
+  ]
+}

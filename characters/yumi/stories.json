@@ -1,0 +1,80 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "dawn",
+      "when": "morning",
+      "bg": "sunset",
+      "text": "7am session, perfect waves, zero people 🌊"
+    },
+    {
+      "id": "churro",
+      "when": "afternoon",
+      "bg": "mint",
+      "text": "churro vs a seagull: the seagull won again"
+    },
+    {
+      "id": "yoga",
+      "when": "evening",
+      "bg": "sunset",
+      "text": "sunset yoga class, 14 people today!! ☀️"
+    },
+    {
+      "id": "ramen",
+      "when": "evening",
+      "bg": "night",
+      "text": "ramen in gràcia, the only acceptable dinner"
+    },
+    {
+      "id": "cleanup",
+      "when": "morning",
+      "bg": "mint",
+      "text": "beach cleanup: 3 bags of plastic, 1 shoe, 0 owners"
+    },
+    {
+      "id": "pottery",
+      "when": "afternoon",
+      "bg": "coffee",
+      "text": "made a bowl. it's slightly a plate. vale"
+    },
+    {
+      "id": "beach",
+      "when": "any",
+      "bg": "sunset",
+      "photo": "70fbf03275be5a069f838a14cc114ed7.jpg",
+      "text": "not leaving 🌊"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "morning",
+      "text": "dawn patrol 🏄‍♀️"
+    },
+    {
+      "id": "n2",
+      "when": "afternoon",
+      "text": "churros w churro 🐶"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "sunset yoga, come"
+    },
+    {
+      "id": "n4",
+      "when": "any",
+      "text": "ramen > everything"
+    },
+    {
+      "id": "n5",
+      "when": "morning",
+      "text": "waves are flat. sad"
+    },
+    {
+      "id": "n6",
+      "when": "evening",
+      "text": "pottery w mom today"
+    }
+  ]
+}

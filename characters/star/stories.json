@@ -1,0 +1,79 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "swim",
+      "when": "morning",
+      "bg": "sunset",
+      "text": "7am swim. the sea is the only therapist i need 🌊"
+    },
+    {
+      "id": "work",
+      "when": "afternoon",
+      "bg": "pink",
+      "text": "a kid said 'star' instead of 'tar' today. we're counting it 🐯"
+    },
+    {
+      "id": "kaleici",
+      "when": "evening",
+      "bg": "sunset",
+      "text": "kaleiçi at sunset never gets old"
+    },
+    {
+      "id": "cats",
+      "when": "any",
+      "bg": "pink",
+      "text": "balcony cats breakfast service. zeytin got the most, as always"
+    },
+    {
+      "id": "jazz",
+      "when": "night",
+      "bg": "night",
+      "text": "jazz bar, good friends, phones in bags 🍸"
+    },
+    {
+      "id": "book",
+      "when": "night",
+      "bg": "coffee",
+      "text": "reading about attachment styles and recognising everyone i know"
+    },
+    {
+      "id": "twin",
+      "when": "any",
+      "bg": "coffee",
+      "text": "ay called to argue about who forgot mom's birthday. it was him"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "morning",
+      "text": "sea first 🌊"
+    },
+    {
+      "id": "n2",
+      "when": "afternoon",
+      "text": "last session of the day"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "kaleiçi anyone?"
+    },
+    {
+      "id": "n4",
+      "when": "night",
+      "text": "jazz night 🍸"
+    },
+    {
+      "id": "n5",
+      "when": "any",
+      "text": "where are my sunglasses"
+    },
+    {
+      "id": "n6",
+      "when": "afternoon",
+      "text": "the cats are judging me 🐯"
+    }
+  ]
+}

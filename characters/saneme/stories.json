@@ -1,0 +1,148 @@
+{
+  "_note": "Story pool. Every day (her local date) 1-3 of these are picked with that date as the random seed, posted at a time inside their window and kept up for 24h. when: morning | afternoon | evening | night | any. bg: pink | night | coffee | sunset | mint. photo: optional file from Sanéme_photos.",
+  "pool": [
+    {
+      "id": "cafe7am",
+      "when": "morning",
+      "bg": "coffee",
+      "text": "7am shift at café lune. send help ☕"
+    },
+    {
+      "id": "stats8am",
+      "when": "morning",
+      "bg": "night",
+      "text": "8am stats class. i am not ok"
+    },
+    {
+      "id": "metro",
+      "when": "morning",
+      "bg": "mint",
+      "text": "the métro this morning was a social experiment"
+    },
+    {
+      "id": "bu",
+      "when": "afternoon",
+      "bg": "mint",
+      "text": "studying at the BU, day 3 of pretending i understand regression"
+    },
+    {
+      "id": "canal",
+      "when": "afternoon",
+      "bg": "sunset",
+      "text": "canal saint-martin is unreal today"
+    },
+    {
+      "id": "coffee3",
+      "when": "afternoon",
+      "bg": "coffee",
+      "text": "iced coffee #3. it's fine. i'm fine."
+    },
+    {
+      "id": "pastries",
+      "when": "afternoon",
+      "bg": "pink",
+      "text": "a regular just tipped me in pastries. best customer ever 🥐"
+    },
+    {
+      "id": "outfit",
+      "when": "afternoon",
+      "bg": "pink",
+      "photo": "a1426b335822b4b390efcb78fc4c26b5.jpg",
+      "text": "outfit check before class"
+    },
+    {
+      "id": "mochi",
+      "when": "evening",
+      "bg": "pink",
+      "text": "mochi has claimed my laptop. i guess i live here now"
+    },
+    {
+      "id": "crepes",
+      "when": "evening",
+      "bg": "sunset",
+      "text": "inès is making crêpes and singing very badly"
+    },
+    {
+      "id": "film",
+      "when": "evening",
+      "bg": "night",
+      "text": "new film roll developed!! 36 shots, 4 good ones"
+    },
+    {
+      "id": "camille",
+      "when": "evening",
+      "bg": "mint",
+      "text": "camille fell asleep on my couch mid-sentence. med school is killing her"
+    },
+    {
+      "id": "bangs",
+      "when": "evening",
+      "bg": "pink",
+      "photo": "ebf09ea37d40e4e919c4d498762faa6e.jpg",
+      "text": "bangs update"
+    },
+    {
+      "id": "throwback",
+      "when": "any",
+      "bg": "sunset",
+      "photo": "4190304e2faee30f57d8711446680076.jpg",
+      "text": "missing annecy already"
+    },
+    {
+      "id": "insomnia",
+      "when": "night",
+      "bg": "night",
+      "text": "can't sleep. horror movie recs?"
+    },
+    {
+      "id": "ukulele",
+      "when": "night",
+      "bg": "night",
+      "text": "ukulele practice. the neighbors hate me"
+    },
+    {
+      "id": "lomepal",
+      "when": "night",
+      "bg": "night",
+      "text": "lomepal and staring at the ceiling"
+    },
+    {
+      "id": "hereditary",
+      "when": "any",
+      "bg": "night",
+      "text": "rewatching hereditary for the 5th time. don't judge"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "morning",
+      "text": "iced coffee or i'm not talking 🧊"
+    },
+    {
+      "id": "n2",
+      "when": "afternoon",
+      "text": "stats exam brain 🧠💀"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "mochi stole my seat again"
+    },
+    {
+      "id": "n4",
+      "when": "night",
+      "text": "horror movie rec pls"
+    },
+    {
+      "id": "n5",
+      "when": "any",
+      "text": "analyzing everyone's texts rn"
+    },
+    {
+      "id": "n6",
+      "when": "night",
+      "text": "3am thoughts > 3pm thoughts"
+    }
+  ]
+}
