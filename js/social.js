@@ -281,11 +281,33 @@ async function openPostModal(key, focus) {
 function closePostModal() { $("#postModal").classList.remove("show"); }
 document.addEventListener("keydown", e => { if (e.key === "Escape" && $("#postModal").classList.contains("show")) closePostModal(); });
 
+// A long list drawn a piece at a time: the first `first` items now, `step` more each time you scroll near
+// the end. A phone (iPhone Safari above all) runs out of memory with ~100 photo posts on the page at once.
+function renderInChunks(box, items, html, first, step) {
+    if (box._chunks) box._chunks.disconnect();
+    let shown = window.IntersectionObserver ? Math.min(first, items.length) : items.length;
+    box.innerHTML = items.slice(0, shown).map(html).join("");
+    if (shown >= items.length) return;
+    const sentinel = document.createElement("div");
+    sentinel.className = "chunk-sentinel";
+    box.after(sentinel);
+    box._chunks = new IntersectionObserver(entries => {
+        if (!entries.some(e => e.isIntersecting)) return;
+        const next = items.slice(shown, shown + step);
+        box.insertAdjacentHTML("beforeend", next.map((p, k) => html(p, shown + k)).join(""));
+        shown += next.length;
+        if (shown >= items.length) { box._chunks.disconnect(); sentinel.remove(); }
+    }, { root: box.closest(".view-scroll"), rootMargin: "900px 0px" });
+    box._chunks.observe(sentinel);
+}
+
 // ---- Home ----
 async function renderHome() {
     renderStoryStrip();
     if (!state.feed) { $("#feed").innerHTML = skeletonFeed(); await loadFeed(); }
-    $("#feed").innerHTML = state.feed.length ? state.feed.map(feedPostHTML).join("") : `<div class="empty-state">No posts yet.</div>`;
+    $$("#view-home .chunk-sentinel").forEach(s => s.remove());
+    if (!state.feed.length) { $("#feed").innerHTML = `<div class="empty-state">No posts yet.</div>`; return; }
+    renderInChunks($("#feed"), state.feed, feedPostHTML, 8, 8);
 }
 
 // ---- Explore ----
@@ -302,8 +324,9 @@ async function renderExplore() {
     const hash = str => { let h = 7; for (const ch of str) h = (h * 31 + ch.charCodeAt(0)) | 0; return h; };
     const posts = state.feed.filter(p => !exFilter || people.some(c => c.id === p.cid))
         .sort((a, b) => hash(pkey(a) + SL.SESSION) - hash(pkey(b) + SL.SESSION));
-    $("#exGrid").innerHTML = posts.map((p, i) => `<button class="ex-tile lq ${i % 10 === 2 || i % 10 === 5 ? "tall" : ""}" data-pm-open="${esc(pkey(p))}" style="${lqVar(p)}animation-delay:${Math.min(i, 12) * 0.025}s">
-        <img src="${esc(p.thumb || p.url)}" loading="lazy" alt=""><span class="ex-ov"><span>♥ ${p.likes}</span>${p.comments.length ? `<span>💬 ${p.comments.length}</span>` : ""}</span></button>`).join("");
+    $$("#view-explore .chunk-sentinel").forEach(s => s.remove());
+    renderInChunks($("#exGrid"), posts, (p, i) => `<button class="ex-tile lq ${i % 10 === 2 || i % 10 === 5 ? "tall" : ""}" data-pm-open="${esc(pkey(p))}" style="${lqVar(p)}animation-delay:${Math.min(i % 24, 12) * 0.025}s">
+        <img src="${esc(p.thumb || p.url)}" loading="lazy" alt=""><span class="ex-ov"><span>♥ ${p.likes}</span>${p.comments.length ? `<span>💬 ${p.comments.length}</span>` : ""}</span></button>`, 24, 18);
 }
 
 // ---- Notifications ----

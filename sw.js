@@ -6,7 +6,7 @@
  * cached the first time they're seen. When you publish a new version, bump VERSION (saneme-v4, ...)
  * so phones drop the old files.
  */
-const VERSION = "saneme-v3";
+const VERSION = "saneme-v4";
 const IMG_CACHE = "saneme-img";
 const CORE = [
     "./", "./index.html", "./manifest.json", "./icon.png", "./avatar.js", "./css/app.css", "./css/pages.css",

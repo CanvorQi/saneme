@@ -43,7 +43,7 @@ function showView(name) {
     viewTarget = name;
     // Browsers with View Transitions: the old page slides out and the new one slides in (direction
     // from VIEW_ORDER), and a clicked avatar morphs into her big profile photo.
-    if (document.startViewTransition && fxOn() && from && from !== name && !document.hidden) {
+    if (canTransition() && from && from !== name && !document.hidden) {
         const dir = VIEW_ORDER.indexOf(name) >= VIEW_ORDER.indexOf(from) ? "fwd" : "back";
         root.dataset.vt = dir;
         const av = name === "her" && vtAvatar && vtAvatar.isConnected && vtAvatar.getClientRects().length ? vtAvatar : null;

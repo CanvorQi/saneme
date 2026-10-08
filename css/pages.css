@@ -155,9 +155,12 @@ html.v-chat .app-shell { margin-left: calc(var(--rail) + var(--inbox)); }
 .ex-tile { position: relative; border: none; padding: 0; overflow: hidden; background: var(--accent-pale-2); border-radius: 4px; animation: fadeUp .35s ease both; }
 .ex-tile.tall { grid-row: span 2; }
 .ex-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
-.ex-tile:hover img { transform: scale(1.04); }
 .ex-ov { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 14px; background: rgba(0,0,0,.32); color: #fff; font-weight: 700; font-size: 15px; opacity: 0; transition: opacity .15s; }
-.ex-tile:hover .ex-ov { opacity: 1; }
+/* only with a mouse: on a phone a tap leaves :hover stuck on the tile */
+@media (hover: hover) {
+    .ex-tile:hover img { transform: scale(1.04); }
+    .ex-tile:hover .ex-ov { opacity: 1; }
+}
 
 /* ---- Notifications ---- */
 .act-card { max-width: 620px; }

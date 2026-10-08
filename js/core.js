@@ -9,6 +9,10 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 // ---------------- Visual effects (ported from Gracie's fx helpers) ----------------
 const fxOn = () => !document.documentElement.classList.contains("no-fx")
     && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+// Page / story transitions (View Transitions API) snapshot the screen; on iPhones and iPads at 3x that
+// memory is what makes Safari give up, so they're off there (the pages still fade in the simple way).
+const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+const canTransition = () => !!document.startViewTransition && fxOn() && !IOS;
 
 // emojis float up from the bottom of the screen
 function fxBurst(emojis, count = 18) {

@@ -116,7 +116,7 @@ function stepStory(d) {
     if (next === prev) return;
     // the same person's next story cross-fades; moving on to someone else turns the cube (Instagram)
     const kind = next.character.id === prev.character.id ? "fade" : d > 0 ? "cube-fwd" : "cube-back";
-    if (!document.startViewTransition || !fxOn()) return showStory();
+    if (!canTransition()) return showStory();
     const root = document.documentElement, seq = ++sv.vtSeq;
     root.dataset.svt = kind;
     // a quick second tap skips the running transition: only the newest one clears the flag

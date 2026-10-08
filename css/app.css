@@ -805,11 +805,13 @@ body, .card, .app-sidebar, .topbar, .bottom-nav, .msg, input, textarea, select {
 .sk-avatar { width: 150px; height: 150px; border-radius: 50%; flex-shrink: 0; }
 @media (max-width: 760px) { .sk-avatar { width: 86px; height: 86px; } .sk-head + .her-photo-grid { padding: 16px !important; } }
 
-/* Blur-up: the box shows a blurred 16px copy of the photo (--lq) until the real one fades in sharp */
-.lq::before { content: ""; position: absolute; inset: -14px; background: var(--lq, none) center / cover no-repeat; filter: blur(14px); transform: scale(1.06); }
-.lq > img { position: relative; opacity: 0; filter: blur(12px); transition: opacity .45s ease, filter .7s ease, transform .35s ease; }
-.lq > img.loaded { opacity: 1; filter: none; }
-html.no-fx .lq > img { opacity: 1; filter: none; }
+/* Blur-up: the box shows the 16px copy of the photo (--lq), stretched (which already looks blurred), until
+   the real one fades in. No CSS filter / transform here: on an iPhone every filtered box becomes its own
+   graphics layer at 3x resolution, and a feed full of them crashes Safari. */
+.lq.lq { background: var(--lq, none) center / cover no-repeat var(--accent-pale-2); }  /* (doubled: wins over .ex-tile etc.) */
+.lq > img { position: relative; opacity: 0; transition: opacity .45s ease, transform .35s ease; }
+.lq > img.loaded { opacity: 1; }
+html.no-fx .lq > img { opacity: 1; }
 
 /* Page transitions (View Transitions API): the page area slides + fades in the direction you're going;
    html[data-vt] is only set while a transition runs, so .app-shell isn't a stacking context otherwise */
