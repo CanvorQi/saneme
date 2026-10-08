@@ -1,0 +1,80 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "flash",
+      "when": "afternoon",
+      "bg": "night",
+      "text": "new flash sheet. moths, daggers, one very angry frog"
+    },
+    {
+      "id": "morticia",
+      "when": "evening",
+      "bg": "night",
+      "text": "morticia is sleeping in the sink again. i give up"
+    },
+    {
+      "id": "flea",
+      "when": "morning",
+      "bg": "coffee",
+      "text": "flea market haul: one silver ring, two cursed spoons"
+    },
+    {
+      "id": "rain",
+      "when": "afternoon",
+      "bg": "mint",
+      "text": "rain in berlin. finally a nice day"
+    },
+    {
+      "id": "film",
+      "when": "night",
+      "bg": "night",
+      "text": "possession (1981) at 2am. normal tuesday"
+    },
+    {
+      "id": "candles",
+      "when": "evening",
+      "bg": "sunset",
+      "photo": "indir (29).jpg",
+      "text": "candle count: 23"
+    },
+    {
+      "id": "grapefruit",
+      "when": "afternoon",
+      "bg": "pink",
+      "text": "tattooed my 40th grapefruit today. it didn't complain"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "night",
+      "text": "drawing skulls till 4am 💀"
+    },
+    {
+      "id": "n2",
+      "when": "evening",
+      "text": "morticia hates the new candle"
+    },
+    {
+      "id": "n3",
+      "when": "afternoon",
+      "text": "flash day at the studio"
+    },
+    {
+      "id": "n4",
+      "when": "any",
+      "text": "recommend me a horror book"
+    },
+    {
+      "id": "n5",
+      "when": "night",
+      "text": "the city is better at night"
+    },
+    {
+      "id": "n6",
+      "when": "morning",
+      "text": "coffee black like my wardrobe"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "class",
+      "when": "evening",
+      "bg": "night",
+      "text": "beginner bachata class tonight. somebody's stepping on toes and it's not me 💃"
+    },
+    {
+      "id": "seagulls",
+      "when": "morning",
+      "bg": "sunset",
+      "text": "morning walk by the sea. the seagulls know me by name now"
+    },
+    {
+      "id": "kibbeh",
+      "when": "evening",
+      "bg": "coffee",
+      "text": "mom made kibbeh for 12 people. we are 4"
+    },
+    {
+      "id": "curls",
+      "when": "morning",
+      "bg": "pink",
+      "text": "humidity 85%. the curls have declared war"
+    },
+    {
+      "id": "brother",
+      "when": "evening",
+      "bg": "pink",
+      "text": "kaan ate 3 plates and then said he's on a diet. ok kaan"
+    },
+    {
+      "id": "sun",
+      "when": "afternoon",
+      "bg": "sunset",
+      "photo": "Profile_Photos.jpg",
+      "text": "found my table in the sun. not moving for 3 hours"
+    },
+    {
+      "id": "ferry",
+      "when": "any",
+      "bg": "sunset",
+      "text": "dad's ferry just passed. waved like an idiot. he waved back 🌊"
+    },
+    {
+      "id": "cafe",
+      "when": "afternoon",
+      "bg": "coffee",
+      "text": "new café with more plants than chairs. obsessed 🌿"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "evening",
+      "text": "class at 8, yalla 💃"
+    },
+    {
+      "id": "n2",
+      "when": "morning",
+      "text": "sea walk ☀️"
+    },
+    {
+      "id": "n3",
+      "when": "afternoon",
+      "text": "who's up for çay by the sea ☕"
+    },
+    {
+      "id": "n4",
+      "when": "any",
+      "text": "the curls are winning today"
+    },
+    {
+      "id": "n5",
+      "when": "night",
+      "text": "mom's cooking for 12 again"
+    },
+    {
+      "id": "n6",
+      "when": "afternoon",
+      "text": "who wants a terrace coffee"
+    }
+  ]
+}

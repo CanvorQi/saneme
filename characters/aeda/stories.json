@@ -1,0 +1,79 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "podcast",
+      "when": "morning",
+      "bg": "coffee",
+      "text": "tram, podcast, coffee. the holy trinity 🎧"
+    },
+    {
+      "id": "swim",
+      "when": "morning",
+      "bg": "night",
+      "text": "winter swim with my sister. i am never doing this again (i will)"
+    },
+    {
+      "id": "buttons",
+      "when": "afternoon",
+      "bg": "pink",
+      "text": "spent 2 hours on a button. it is a very good button"
+    },
+    {
+      "id": "fika",
+      "when": "afternoon",
+      "bg": "coffee",
+      "text": "fika break. this is not optional in sweden"
+    },
+    {
+      "id": "sunset",
+      "when": "evening",
+      "bg": "sunset",
+      "text": "sunset at 3pm, welcome back october"
+    },
+    {
+      "id": "elsa",
+      "when": "any",
+      "bg": "pink",
+      "text": "my niece grabbed my finger and i forgot my own name"
+    },
+    {
+      "id": "night",
+      "when": "night",
+      "bg": "night",
+      "text": "can't sleep. listening to someone explain a shipwreck for 2 hours"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "morning",
+      "text": "coffee first ☕"
+    },
+    {
+      "id": "n2",
+      "when": "afternoon",
+      "text": "meeting about a meeting"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "parkrun tomorrow, maybe"
+    },
+    {
+      "id": "n4",
+      "when": "night",
+      "text": "new episode just dropped 🎧"
+    },
+    {
+      "id": "n5",
+      "when": "any",
+      "text": "it's lagom cold today"
+    },
+    {
+      "id": "n6",
+      "when": "afternoon",
+      "text": "fika??"
+    }
+  ]
+}

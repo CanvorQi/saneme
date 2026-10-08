@@ -1,0 +1,87 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "kordon",
+      "when": "evening",
+      "bg": "sunset",
+      "text": "kordon sunset walk. the only therapy i can afford 🌊"
+    },
+    {
+      "id": "contracts",
+      "when": "afternoon",
+      "bg": "coffee",
+      "text": "page 47 of a rental contract. pray for me ⚖️"
+    },
+    {
+      "id": "boyoz",
+      "when": "morning",
+      "bg": "coffee",
+      "text": "boyoz and tea before class. izmir mornings >>>"
+    },
+    {
+      "id": "avukat",
+      "when": "any",
+      "bg": "pink",
+      "text": "avukat (the cat) ignored me for 2 days because i went to istanbul. fair"
+    },
+    {
+      "id": "studying",
+      "when": "night",
+      "bg": "night",
+      "text": "2am, civil procedure, third coffee. totally normal"
+    },
+    {
+      "id": "turkishcoffee",
+      "when": "afternoon",
+      "bg": "sunset",
+      "photo": "dbc2f901c3567e7eed7e0c2601f0690e.jpg",
+      "text": "turkish coffee and a cold sea. throwback to the best day"
+    },
+    {
+      "id": "blazer",
+      "when": "morning",
+      "bg": "pink",
+      "photo": "69c1222cfaa8c0e4bc5019dfed5f758c.jpg",
+      "text": "firm day. blazer on, patience off"
+    },
+    {
+      "id": "suits",
+      "when": "night",
+      "bg": "night",
+      "text": "rewatching suits for the 4th time. harvey would win my case"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "morning",
+      "text": "court day. blazer on ⚖️"
+    },
+    {
+      "id": "n2",
+      "when": "afternoon",
+      "text": "objection to mondays"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "kordon walk anyone? 🌊"
+    },
+    {
+      "id": "n4",
+      "when": "night",
+      "text": "civil procedure at 2am 💀"
+    },
+    {
+      "id": "n5",
+      "when": "any",
+      "text": "roots showing. crisis"
+    },
+    {
+      "id": "n6",
+      "when": "afternoon",
+      "text": "urla this weekend 🐟"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "lab",
+      "when": "morning",
+      "bg": "night",
+      "text": "8am anatomy lab. coffee did not help xd"
+    },
+    {
+      "id": "turbo",
+      "when": "any",
+      "bg": "pink",
+      "text": "turbo running on 3 legs faster than me on 2 🐶"
+    },
+    {
+      "id": "f1",
+      "when": "afternoon",
+      "bg": "sunset",
+      "text": "race day. dad and i on the phone yelling at the screen 🏎️"
+    },
+    {
+      "id": "porsuk",
+      "when": "evening",
+      "bg": "sunset",
+      "text": "porsuk walk. turbo met 4 ducks and lost his mind 🐾"
+    },
+    {
+      "id": "kdrama",
+      "when": "night",
+      "bg": "night",
+      "text": "episode 14. i am not crying. ok i am crying"
+    },
+    {
+      "id": "cigborek",
+      "when": "afternoon",
+      "bg": "coffee",
+      "text": "çiğ börek break between classes. eskişehir does one thing right"
+    },
+    {
+      "id": "shelter",
+      "when": "morning",
+      "bg": "pink",
+      "text": "shelter day. 12 dogs, 1 me, zero clean clothes"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "morning",
+      "text": "anatomy at 8 💀"
+    },
+    {
+      "id": "n2",
+      "when": "afternoon",
+      "text": "shelter today 🐾"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "porsuk walk?"
+    },
+    {
+      "id": "n4",
+      "when": "night",
+      "text": "kdrama marathon"
+    },
+    {
+      "id": "n5",
+      "when": "any",
+      "text": "turbo says hi 🐶"
+    },
+    {
+      "id": "n6",
+      "when": "afternoon",
+      "text": "race this weekend 🏎️"
+    }
+  ]
+}

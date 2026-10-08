@@ -1,0 +1,79 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "kanji",
+      "when": "afternoon",
+      "bg": "pink",
+      "text": "kanji practice. my hand hurts but 雨 finally looks happy 🌸"
+    },
+    {
+      "id": "manti",
+      "when": "evening",
+      "bg": "coffee",
+      "text": "grandma's mantı sunday. no further questions"
+    },
+    {
+      "id": "eymir",
+      "when": "morning",
+      "bg": "sunset",
+      "text": "eymir at 8am. just me, a heron and a cold tea 🐦"
+    },
+    {
+      "id": "rain",
+      "when": "any",
+      "bg": "night",
+      "text": "rain in ankara. perfect excuse to stay in with ghibli"
+    },
+    {
+      "id": "mochi",
+      "when": "any",
+      "bg": "pink",
+      "text": "mochi sang today. the vacuum was on. as always"
+    },
+    {
+      "id": "citypop",
+      "when": "night",
+      "bg": "night",
+      "text": "city pop + night drive in mom's car ✨"
+    },
+    {
+      "id": "stationery",
+      "when": "afternoon",
+      "bg": "coffee",
+      "text": "went in for one pen. left with 6. help"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "morning",
+      "text": "speaking class today 🥺"
+    },
+    {
+      "id": "n2",
+      "when": "afternoon",
+      "text": "found a new stationery shop"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "mantı night ✨"
+    },
+    {
+      "id": "n4",
+      "when": "night",
+      "text": "watching totoro again"
+    },
+    {
+      "id": "n5",
+      "when": "any",
+      "text": "mochi is singing 🐦"
+    },
+    {
+      "id": "n6",
+      "when": "afternoon",
+      "text": "kanji quiz tomorrow 😭"
+    }
+  ]
+}

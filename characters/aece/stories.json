@@ -1,0 +1,87 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "espresso",
+      "when": "morning",
+      "bg": "coffee",
+      "text": "third espresso and it's 10am. event day energy ☕"
+    },
+    {
+      "id": "valentino",
+      "when": "evening",
+      "bg": "pink",
+      "text": "valentino (the fat cat) waited for me on the stairs again 🐈"
+    },
+    {
+      "id": "rooftop",
+      "when": "night",
+      "bg": "night",
+      "text": "rooftop szn is not over until I say it is 🥂"
+    },
+    {
+      "id": "outfit",
+      "when": "afternoon",
+      "bg": "pink",
+      "photo": "6bbd65ee3b82cb14c8153f2df3ab8c8c.jpg",
+      "text": "fit check before the meeting"
+    },
+    {
+      "id": "ferry",
+      "when": "afternoon",
+      "bg": "sunset",
+      "text": "ferry to karaköy, best 20 minutes of the day"
+    },
+    {
+      "id": "brunch",
+      "when": "morning",
+      "bg": "sunset",
+      "text": "breakfast for 3 hours, no regrets 🍳"
+    },
+    {
+      "id": "dj",
+      "when": "evening",
+      "bg": "night",
+      "text": "the dj is late. i am not ok"
+    },
+    {
+      "id": "lips",
+      "when": "any",
+      "bg": "pink",
+      "photo": "65a1cf7b6c78c01d0505939345ea60be.jpg",
+      "text": "this lip combo >>>"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "morning",
+      "text": "event day. pray for me ✨"
+    },
+    {
+      "id": "n2",
+      "when": "afternoon",
+      "text": "who's up for rooftop tonight 🥂"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "valentino the cat says hi"
+    },
+    {
+      "id": "n4",
+      "when": "night",
+      "text": "still in heels. send help"
+    },
+    {
+      "id": "n5",
+      "when": "any",
+      "text": "new lip combo unlocked 💋"
+    },
+    {
+      "id": "n6",
+      "when": "afternoon",
+      "text": "ferry > traffic"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "find",
+      "when": "afternoon",
+      "bg": "pink",
+      "text": "£8 for a 90s leather jacket. london i love you ✨"
+    },
+    {
+      "id": "cafe",
+      "when": "morning",
+      "bg": "coffee",
+      "text": "early shift at mum's café. hellim toast for breakfast"
+    },
+    {
+      "id": "bus",
+      "when": "night",
+      "bg": "night",
+      "text": "night bus across london. best thinking time 👀"
+    },
+    {
+      "id": "hellim",
+      "when": "any",
+      "bg": "pink",
+      "text": "hellim (the cat) refuses to move off my new jeans"
+    },
+    {
+      "id": "bricklane",
+      "when": "afternoon",
+      "bg": "sunset",
+      "text": "brick lane sunday. bought nothing (lie)"
+    },
+    {
+      "id": "kyrenia",
+      "when": "any",
+      "bg": "sunset",
+      "text": "missing kyrenia harbour today. send sea"
+    },
+    {
+      "id": "deadline",
+      "when": "night",
+      "bg": "night",
+      "text": "dissertation deadline 3 weeks. panic level: tasteful"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "morning",
+      "text": "café shift ☕"
+    },
+    {
+      "id": "n2",
+      "when": "afternoon",
+      "text": "vintage haul today ✨"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "central line was a sauna"
+    },
+    {
+      "id": "n4",
+      "when": "night",
+      "text": "night bus thoughts"
+    },
+    {
+      "id": "n5",
+      "when": "any",
+      "text": "nene called. i'm in trouble 😭"
+    },
+    {
+      "id": "n6",
+      "when": "afternoon",
+      "text": "brick lane?"
+    }
+  ]
+}

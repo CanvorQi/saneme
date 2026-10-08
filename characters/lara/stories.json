@@ -1,0 +1,80 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "cake",
+      "when": "afternoon",
+      "bg": "pink",
+      "text": "Sunday baking: apricot cake is in the oven 🍰"
+    },
+    {
+      "id": "kids",
+      "when": "afternoon",
+      "bg": "sunset",
+      "text": "We painted with our hands today. My hands are still blue ☺️"
+    },
+    {
+      "id": "opera",
+      "when": "evening",
+      "bg": "night",
+      "text": "Standing room tonight: La Bohème ✨"
+    },
+    {
+      "id": "strudel",
+      "when": "morning",
+      "bg": "mint",
+      "text": "Strudel woke me at 5:30 for breakfast. Good morning to him only."
+    },
+    {
+      "id": "rain",
+      "when": "afternoon",
+      "bg": "coffee",
+      "text": "Rainy Vienna, warm café, good book 🌧️"
+    },
+    {
+      "id": "rose",
+      "when": "any",
+      "bg": "pink",
+      "photo": "54bc206ae37e7b0bf9dc403a19cdb669.jpg",
+      "text": "Still smiling about this 🌹"
+    },
+    {
+      "id": "italian",
+      "when": "evening",
+      "bg": "sunset",
+      "text": "Italian lesson: I can now order coffee and apologize. Progress!"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "morning",
+      "text": "Baking day 🍰"
+    },
+    {
+      "id": "n2",
+      "when": "afternoon",
+      "text": "23 kids, 1 me, 0 energy"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "Opera tonight, standing room 🎻"
+    },
+    {
+      "id": "n4",
+      "when": "any",
+      "text": "Strudel is asleep on my notes"
+    },
+    {
+      "id": "n5",
+      "when": "evening",
+      "text": "Fresh tulips on the table 🌷"
+    },
+    {
+      "id": "n6",
+      "when": "afternoon",
+      "text": "Learning Italian: ciao!"
+    }
+  ]
+}

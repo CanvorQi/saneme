@@ -1,0 +1,80 @@
+{
+  "_note": "Story pool, same format as Sanéme's.",
+  "pool": [
+    {
+      "id": "karaoke",
+      "when": "evening",
+      "bg": "pink",
+      "text": "car karaoke: dancing queen. neighbors at the light were NOT impressed 🎶"
+    },
+    {
+      "id": "pancakes",
+      "when": "morning",
+      "bg": "coffee",
+      "text": "pancakes at 8am before class bc i deserve it 🥞"
+    },
+    {
+      "id": "exam",
+      "when": "afternoon",
+      "bg": "night",
+      "text": "anatomy exam in 2 days. i know nothing. hello"
+    },
+    {
+      "id": "kotletas",
+      "when": "night",
+      "bg": "night",
+      "text": "kotletas is running his wheel at 3am again"
+    },
+    {
+      "id": "lake",
+      "when": "afternoon",
+      "bg": "mint",
+      "photo": "f1899e867c8bc6e9812ef3a77a61b2f0.jpg",
+      "text": "trakai lake trip!!"
+    },
+    {
+      "id": "parking",
+      "when": "afternoon",
+      "bg": "sunset",
+      "text": "parallel parked in ONE try. witnesses: none. sad"
+    },
+    {
+      "id": "tomas",
+      "when": "evening",
+      "bg": "pink",
+      "text": "waiting for my twin for 40 minutes. siblings are a scam"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "when": "afternoon",
+      "text": "send songs for my drive!! 🚗"
+    },
+    {
+      "id": "n2",
+      "when": "morning",
+      "text": "12h shift, wish me luck"
+    },
+    {
+      "id": "n3",
+      "when": "evening",
+      "text": "pancake o'clock 🥞"
+    },
+    {
+      "id": "n4",
+      "when": "any",
+      "text": "kotletas ran away (found him)"
+    },
+    {
+      "id": "n5",
+      "when": "night",
+      "text": "lake drive at night?"
+    },
+    {
+      "id": "n6",
+      "when": "afternoon",
+      "text": "anatomy exam tmr 😭"
+    }
+  ]
+}
